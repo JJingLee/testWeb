@@ -1,0 +1,21 @@
+#title {
+  font-size: 2em;
+  color: tomato;
+}
+
+.item {
+  font-size: 1.2em;
+}
+
+#btn {
+    color: mediumseagreen;
+    padding: 10px;
+    border: none;
+    border-radius: 3em;
+    cursor: pointer;
+}
+
+#btn:hover {
+    background-color : black;
+
+}
