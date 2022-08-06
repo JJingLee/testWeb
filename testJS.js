@@ -15,12 +15,72 @@
 // console.log(arr);
 
 // const btn = document.getElementById("mint_btn");
-const btns = document.querySelectorAll('.bbb')
-btns[btns.length-1].style.backgroundColor = 'orange';
-console.log(btns);
-btns[btns.length-1].addEventListener('click',(element,event)=>{
-    alert('hi')
-})
+// const btns = document.querySelectorAll('.bbb')
+// btns[btns.length-1].style.backgroundColor = 'orange';
+// console.log(btns);
+// btns[btns.length-1].addEventListener('click',(element,event)=>{
+//     alert('hi')
+// })
+
+
+
+
+
+
+
+
+
+
+const addElement = ()=>{
+    //prevent null
+    if(!document.querySelector('#createInput').value){return;}
+
+    const attachCheckBox = (parent)=>{
+        let checkbox = document.createElement("input");
+        checkbox.type = 'checkbox';
+        parent.appendChild(checkbox);
+    }
+    const attachText = (parent)=>{
+        let text = document.querySelector('#createInput');
+        let newtext = document.createTextNode(text.value);
+        parent.appendChild(newtext);
+    }
+    const attachDelete = (parent)=>{
+        let btn = document.createElement("button");
+        btn.innerText = 'delete';
+        parent.appendChild(btn);
+        btn.addEventListener('click',(event)=>{
+            btn.parentElement.remove();
+            event.preventDefault()
+        })
+    }
+
+    let newItem = document.createElement("p");
+    attachCheckBox(newItem);
+    attachText(newItem);
+    attachDelete(newItem);
+    let area = document.querySelector('#todoArea');
+    area.appendChild(newItem);
+}
+const createBtn = document.querySelector('#mint_btn');
+console.log([createBtn]);
+createBtn.addEventListener('click',(event)=>{
+    addElement();
+    // const title = document.createElement("span");
+    // const newItem = document.createElement("div");
+    // newItem.innerText = "test1";
+    // // newItem.appendChild(title);
+    // form.appendChild(newItem);
+    console.log(event)
+    event.preventDefault()
+},{ capture: false })
+
+
+
+
+
+
+
 
 // function sleep() {
 //     return new Promise((resolve,reject)=>{
